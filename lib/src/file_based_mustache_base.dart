@@ -84,7 +84,7 @@ class TemplateDirectory {
             writtenDirectories.add(outputLocation);
             print ("${item.path} => ${newOutputDirectory.path}");
             await newOutputDirectory.create();
-            _renderDirectory(item, newOutputDirectory, args, writtenFiles, writtenDirectories, rootMap);
+            await _renderDirectory(item, newOutputDirectory, args, writtenFiles, writtenDirectories, rootMap);
           }
         } else if (item is Link) {
           Link newOutputDirectory = new Link(outputLocation);
