@@ -1,4 +1,4 @@
-// Copyright (c) 2016, <your name>. All rights reserved. Use of this source code
+// Copyright (c) 2016, Adam Stark. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 // TODO: Put public facing types in this file.
@@ -27,7 +27,13 @@ class TemplateDirectory {
     if (writtenDirectories == null) writtenDirectories = new List();
 
     await for (var item in directory.list()) {
-      var relativePath = item.path.substring(directory.path.length + 1);
+      int pathOffset;
+      if (directory.path.endsWith(Platform.pathSeparator)) {
+        pathOffset = 0;
+      } else {
+        pathOffset = 1;
+      }
+      var relativePath = item.path.substring(directory.path.length + pathOffset);
       final relativePathMatch = _iteratorSubdirectory.firstMatch(relativePath);
 
       if (relativePathMatch != null) {

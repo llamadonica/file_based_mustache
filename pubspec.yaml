@@ -1,6 +1,6 @@
 name: file_based_mustache
-description: A starting point for Dart libraries or applications.
-version: 0.0.1
+description: A library that builds file trees based on a mustache-like template.
+version: 0.0.2
 author: Adam Stark<llamadonica@gmail.com>
 #homepage: https://www.example.com
 
